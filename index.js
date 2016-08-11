@@ -11,6 +11,11 @@ var procedure = argv[2];
 if (procedure === "start") {
    Launcher.start();
 }
+
+if (procedure === "setup") {
+   Launcher.setup();
+}
+
 if (procedure === "restore") {
    Launcher.restore();
 }
