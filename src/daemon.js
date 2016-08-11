@@ -33,7 +33,7 @@ let findPidsByPort = (port) => {
 let kill = (pids) => {
    return new Promise((resolve, reject) => {
       exec("kill " + pids.join(' '), {}, function(error, stdout, stderr) {
-         if (!error) {
+         if (error) {
             return reject(error);
          }
          return resolve();
