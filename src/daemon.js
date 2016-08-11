@@ -17,7 +17,7 @@ let findPidsByPort = (port) => {
    return new Promise((resolve, reject) => {
       // Preventing google chrome from destroying itself...
       exec("lsof -c ^Google -ti :" + port, {}, function(error, stdout, stderr) {
-         var pids = stdout.match(/(\d{1})/g);
+         var pids = stdout.match(/(\d{1,})/g);
          if (pids && pids.length > 0) {
             return resolve(pids);
          } else {
