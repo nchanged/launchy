@@ -49,6 +49,9 @@ module.exports = {
    error: function(str) {
       this._print("    " + colors.RED + str + colors.ENDC, sliced(arguments, 1));
    },
+   fatal: function(str) {
+      this._print("    " + colors.RED + str + colors.ENDC, sliced(arguments, 1));
+   },
    warn: function(str) {
       this._print("    " + colors.WARNING + str + colors.ENDC, sliced(arguments, 1));
    }
