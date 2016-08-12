@@ -56,22 +56,23 @@ class Launcher {
          // Asking user about scripts' userName
          // What user should we be launching as?
          setUserName() {
-               const rl = readline.createInterface({
-                  input: process.stdin,
-                  output: process.stdout
-               });
-               let defaultUserName = "jenkins";
+            const rl = readline.createInterface({
+               input: process.stdin,
+               output: process.stdout
+            });
+            let defaultUserName = "jenkins";
 
-               return new Promise((resolve, reject) => {
-                  rl.question('    User (' + defaultUserName + '): ', (answer) => {
-                     rl.close();
-                     return resolve(answer || defaultUserName)
-                  });
+            return new Promise((resolve, reject) => {
+               rl.question('    User (' + defaultUserName + '): ', (answer) => {
+                  rl.close();
+                  return resolve(answer || defaultUserName)
                });
-            }
-            // Modify /etc/rc.local
+            });
+         }
+
+         // Modify /etc/rc.local
          modifyContents() {
-            var line = "sudo su " + this.userName + " launchy restore";
+            var line = "sudo su " + this.userName + " -c \"launchy restore &\"";
             logger.info(line)
             if (!this.content.match(line)) {
                logger.info("File update requires")

@@ -48,6 +48,7 @@ let spawnProcess = (pName, opts, logs, specialEnv) => {
       LOCAL_ENV[key] = specialEnv[key];
    }
    logger.highlight(pName + " " + opts)
+
    return spawn(pName, opts, {
       stdio: ['ignore', logs.out, logs.err],
       detached: true,

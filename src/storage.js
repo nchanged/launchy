@@ -16,8 +16,8 @@ class Storage {
    constructor() {
       // initialize folders
       // Make sure we have them
-      mkdirp(_config_folder);
-      mkdirp(_projects_folder);
+      mkdirp.sync(_config_folder);
+      mkdirp.sync(_projects_folder);
       this.initSettings();
    }
 
